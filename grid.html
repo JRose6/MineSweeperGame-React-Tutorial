@@ -1,0 +1,41 @@
+<html>
+
+<head>
+    <style>
+        .cell {
+            width: 18px;
+            height: 18px;
+            border: 1px solid black;
+            display: inline-block;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="box"></div>
+</body>
+<script>
+    createGrid();
+    setInterval(createGrid, 3000);
+
+    function createGrid(){
+        document.getElementById('box').innerHTML = "";
+        for (var i = 0; i < 20; i++) {
+            document.getElementById('box').innerHTML += "<br>";
+            for (var j = 0; j < 20; j++) {
+                document.getElementById('box').innerHTML += "<div class='cell' style='background-color:"+getRandomColor()+"'></div>";
+            }
+        }
+    }
+
+    function getRandomColor() {
+        var letters = '0123456789ABCDEF';
+        var color = '#';
+        for (var i = 0; i < 6; i++) {
+            color += letters[Math.floor(Math.random() * 16)];
+        }
+        return color;
+    }
+</script>
+
+</html>
